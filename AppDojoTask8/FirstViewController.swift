@@ -7,22 +7,26 @@
 
 import UIKit
 
-var process: SecondScreenProcess!
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var slider: UISlider!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        process = SecondViewController() as SecondScreenProcess
-        process.sendValue(value: label.text ?? " ")
+    private let delegete = UIApplication.shared.delegate
+        as! AppDelegate
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        label.text = String(delegete.number)
+        slider.value = delegete.number
     }
 
     @IBAction func sliderDidChangeValue(_ sender: UISlider) {
         let value = sender.value
         label.text = String(value)
+        delegete.number = Float(value)
     }
 }
 

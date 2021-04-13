@@ -45,6 +45,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="WQx-g5-e1m"/>
                     <connections>
                         <outlet property="label" destination="9Qj-RI-tHW" id="Xlv-BK-gGZ"/>
+                        <outlet property="slider" destination="gs6-hP-VzZ" id="Sih-7I-9kB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -70,6 +71,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nDG-vc-HZx">
                                 <rect key="frame" x="18" y="125" width="378" height="31"/>
+                                <connections>
+                                    <action selector="sliderDidChangeValue:" destination="cfw-aV-kCP" eventType="valueChanged" id="aJ2-9U-rH7"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KEw-Fa-tgs"/>
@@ -86,6 +90,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="mUD-ks-c2G"/>
                     <connections>
                         <outlet property="label" destination="G42-xg-o5f" id="UAy-gY-6cB"/>
+                        <outlet property="slider" destination="nDG-vc-HZx" id="n3A-De-OOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6W-sV-FjN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

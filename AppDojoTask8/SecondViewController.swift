@@ -2,39 +2,30 @@
 //  SecondViewController.swift
 //  AppDojoTask8
 //
-//  Created by Naoyuki Kan on 2021/04/12.
+//  Created by Naoyuki Kan on 2021/04/13.
 //
 
+//import Foundation
 import UIKit
 
-class SecondViewController: UIViewController, SecondScreenProcess {
+class SecondViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    var num = 0
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var slider: UISlider!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private let delegete = UIApplication.shared.delegate
+        as! AppDelegate
 
-        // Do any additional setup after loading the view.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        label.text = String(delegete.number)
+        slider.value = delegete.number
     }
-    
 
-    func sendValue(value: String){
-//        label.text = value
-        num = Int(value) ?? 0
+    @IBAction func sliderDidChangeValue(_ sender: UISlider) {
+        let value = sender.value
+        label.text = String(value)
+        delegete.number = Float(value)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-protocol SecondScreenProcess {
-    func sendValue(value: String) -> Void
 }
