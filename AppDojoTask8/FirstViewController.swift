@@ -16,17 +16,25 @@ class FirstViewController: UIViewController {
     private let delegete = UIApplication.shared.delegate
         as! AppDelegate
 
+    private var number: Float {
+        get {
+            delegete.number
+        }
+        set {
+            delegete.number = newValue
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        label.text = String(delegete.number)
-        slider.value = delegete.number
+        label.text = String(number)
+        slider.value = number
     }
 
     @IBAction func sliderDidChangeValue(_ sender: UISlider) {
         let value = sender.value
         label.text = String(value)
-        delegete.number = Float(value)
+        number = Float(value)
     }
 }
-
